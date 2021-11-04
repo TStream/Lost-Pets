@@ -1,0 +1,89 @@
+<form clrForm [formGroup]="form" (ngSubmit)="submit()">
+    <clr-input-container>
+        <label>Pet Name</label>
+        <input clrInput type="text" formControlName="petname" />
+        <clr-control-helper>Name of Pet</clr-control-helper>
+        <clr-control-error *clrIfError="'required'">Pet Name is required.</clr-control-error>
+    </clr-input-container>
+    <!--<clr-input-container>
+        <label>Picture</label>
+        <input clrInput type="text" />
+        <clr-control-helper>Most Recent Picture of Pet (Not Implemented)</clr-control-helper>
+    </clr-input-container>-->
+    <clr-select-container>
+        <label>Type</label>
+        <select clrSelect name="pettypeid" (change)="onTypeChange()" formControlName="pettypeid">
+            <option [ngValue]="type.id" *ngFor="let type of petTypes$ | async;">{{type.name}}</option>
+        </select>
+        <clr-control-helper>Type of Pet</clr-control-helper>
+        <clr-control-error *clrIfError="'required'">Type is required.</clr-control-error>
+      </clr-select-container>
+      <clr-combobox-container>
+        <label>Breeds</label>
+        <clr-combobox formControlName="petbreeds" clrMulti="true">
+            <ng-container *clrOptionSelected="let breed">
+                {{breed}}
+              </ng-container>
+            <clr-options>
+                <clr-option *clrOptionItems="let fBreed of formBreeds$ | async" [clrValue]="fBreed">
+                    {{fBreed}}
+                </clr-option>
+            </clr-options>
+        </clr-combobox>
+        <clr-control-helper>Breed of Pet</clr-control-helper>
+    </clr-combobox-container>
+    <clr-input-container>
+        <label>Pet Color</label>
+        <input clrInput type="text" formControlName="petcolor"/>
+        <clr-control-helper>Color of Pet</clr-control-helper>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Pet Marks</label>
+        <input clrInput type="text" formControlName="petmarks"/>
+        <clr-control-helper>Distinguishable marks on Pet</clr-control-helper>
+    </clr-input-container>
+
+    <clr-input-container>
+        <label>Tag Shape</label>
+        <input clrInput type="text" formControlName="tagshape"/>
+        <clr-control-helper>Shape of Tag</clr-control-helper>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Tag Color</label>
+        <input clrInput type="text" formControlName="tagcolor"/>
+        <clr-control-helper>Color of Tag</clr-control-helper>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Tag Text</label>
+        <input clrInput type="text" formControlName="tagtext"/>
+        <clr-control-helper>Text on Tag</clr-control-helper>
+    </clr-input-container>
+
+    <clr-date-container>
+        <label>Last Seen</label>
+        <input clrDate placeholder="Pick a date" name="date" formControlName="date" />
+        <clr-control-helper>Date last seen Pet</clr-control-helper>
+      </clr-date-container>
+    <clr-input-container>
+        <label>Location</label>
+        <input clrInput type="text" formControlName="location"/>
+        <clr-control-helper>Area last seen Pet</clr-control-helper>
+    </clr-input-container>
+
+    <clr-input-container>
+        <label>Contact Name</label>
+        <input clrInput type="text" formControlName="name"/>
+        <clr-control-helper>Name of Person to Contact (won't be visible to others)</clr-control-helper>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Contact Email</label>
+        <input clrInput type="text" formControlName="email"/>
+        <clr-control-helper>Email to send possible matches (won't be visible to others)</clr-control-helper>
+    </clr-input-container>
+    
+    <div class="btn-group">
+        <button class="btn btn-primary" type="submit">Create</button>
+        <button class="btn btn-secondary" type="button" (click)="cancel()">Cancel</button>
+    </div>
+</form>
+

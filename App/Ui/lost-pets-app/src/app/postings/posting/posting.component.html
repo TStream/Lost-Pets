@@ -1,0 +1,41 @@
+<form clrForm layout="vertical">
+    <clr-control-container >
+      <label>Pet Name</label>
+      <span>{{ posting.pet.name }}</span>
+    </clr-control-container>
+  
+    <clr-control-container>
+      <label>Breed(s)</label>
+      <span>{{ posting.pet.breeds }}</span>
+    </clr-control-container>
+  
+    <clr-control-container>
+      <label>Color</label>
+      <span>{{ posting.pet.color }}</span>
+    </clr-control-container>
+
+    <clr-control-container>
+        <label>Marks</label>
+        <span>{{ posting.pet.marks }}</span>
+      </clr-control-container>
+
+      <clr-control-container>
+        <label>Tag Info</label>
+        <div>{{ posting.pet.tag.color }} - {{ posting.pet.tag.shape }}</div>
+        <span>{{ posting.pet.tag.text}}</span>
+      </clr-control-container>
+
+      <h5>Last Seen</h5>
+      <clr-control-container>
+        <label>Date</label>
+        <span>{{ posting.date }}</span>
+      </clr-control-container>
+
+      <clr-control-container>
+        <label>Location</label>
+        <span>{{ posting.location }}</span>
+      </clr-control-container>
+  </form>
+
+
+

@@ -1,0 +1,3 @@
+<ng-container *ngIf="alert$ | async as alert" >
+    <clr-alert [clrAlertType]="alert.type" [clrAlertClosable]="true" [(clrAlertClosed)]="closed">{{alert.message}}</clr-alert>
+</ng-container>

@@ -1,0 +1,26 @@
+<clr-datagrid [clrDgLoading]="loading" class="datagrid-compact">
+    <clr-dg-action-bar>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="onAdd()">
+          <clr-icon shape="plus"></clr-icon> Create Postings
+        </button>   
+    </clr-dg-action-bar>
+  
+    <clr-dg-column><ng-container *clrDgHideableColumn="{ hidden: false }">Picture</ng-container></clr-dg-column>
+    <clr-dg-column><ng-container *clrDgHideableColumn="{ hidden: false }">Name</ng-container></clr-dg-column>
+    <clr-dg-column><ng-container *clrDgHideableColumn="{ hidden: false }">Last Seen On</ng-container></clr-dg-column>
+    <clr-dg-column><ng-container *clrDgHideableColumn="{ hidden: false }">Last Seen Around</ng-container></clr-dg-column>
+    
+    <clr-dg-placeholder>No Postings Found</clr-dg-placeholder>
+  
+    <clr-dg-row *ngFor="let posting of postings$ | async">
+      <clr-dg-action-overflow>
+        <button class="action-item" (click)="onView(posting.id)"><clr-icon shape="link"></clr-icon> View</button>
+      </clr-dg-action-overflow>
+      <clr-dg-cell><img src="{{pictureUrl}}{{posting.pet.pictureId}}"></clr-dg-cell>
+      <clr-dg-cell>{{posting.pet.name}}</clr-dg-cell>
+      <clr-dg-cell>{{posting.date}}</clr-dg-cell>
+      <clr-dg-cell>{{posting.location}}</clr-dg-cell>
+    </clr-dg-row>
+  </clr-datagrid>
+
+  

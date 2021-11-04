@@ -1,0 +1,38 @@
+{
+  "db": {
+    "migrationPath": "../internal/data/postgres/migrations",
+    "migrationUser": "postgres",
+    "migrationPassword": "admin",
+    "host": "localhost",
+    "port": 5432,
+    "dbName": "lostPets",
+    "sslMode": "disable",
+    "username": "postgres",
+    "password": "admin"
+  },
+  "fileStore":{
+    "location": "./files"
+  },
+  "server":{
+    "host":"localhost",
+    "port":3001,
+    "debug":true,
+    "emailSettings": {
+      "host":"localhost",
+      "port":1025,
+      "user":"",
+      "password":"",
+      "linkBase":"http://localhost:4200/postings/private/",
+      "template":{
+        "filePath":"./config/templates/matches.html",
+        "default": "{{.Link}}"
+      }
+    }
+  },
+  "logger":{
+    "depth":1,
+    "level":"debug",
+    "file":"out.log",
+    "stdOut":true
+  }
+}

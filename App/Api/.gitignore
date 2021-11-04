@@ -1,0 +1,7 @@
+*.log
+*.exe
+*.json
+!config/*.json
+/bin
+.env
+rsa.pub
